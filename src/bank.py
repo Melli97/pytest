@@ -11,6 +11,8 @@ class ContoBancario:
         self.saldo += importo
 
     def preleva(self, importo):
+        if importo <= 0:
+            raise ValueError("L'importo deve essere positivo")
         if importo > self.saldo:
             raise SaldoInsufficiente("Saldo insufficiente")
         self.saldo -= importo
